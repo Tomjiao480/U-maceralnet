@@ -87,22 +87,9 @@ def VGG16(pretrained, in_channels = 3, **kwargs):
     model = VGG(make_layers(cfgs["D"], batch_norm = False, in_channels = in_channels), **kwargs)
     if pretrained:
         state_dict = load_state_dict_from_url("https://download.pytorch.org/models/vgg16-397923af.pth", model_dir="./model_data")
-        model.load_state_dict(state_dict) #参数载入
+        model.load_state_dict(state_dict)
     
     del model.avgpool
     del model.classifier
     return model
 
-# vgg_test = VGG16(pretrained=False)
-# # print(vgg_test)
-# # Usage
-# input_tensor = torch.randn(1, 3, 512, 512)  # Example input tensor
-# input_tensor = input_tensor.to('cuda')
-# vgg_test = vgg_test.to('cuda')
-# output_tensor = vgg_test(input_tensor)
-# print(input_tensor.shape)  # torch.Size([8, 64, 32, 32])
-# print(output_tensor[0].shape)  # torch.Size([8, 64, 32, 32])
-# print(output_tensor[1].shape)
-# print(output_tensor[2].shape)
-# print(output_tensor[3].shape)
-# print(output_tensor[4].shape)

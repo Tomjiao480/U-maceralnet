@@ -5,7 +5,7 @@ from nets.resnet import resnet50
 from nets.vgg import VGG16
 
 
-#u-net上采样模块
+
 class unetUp(nn.Module):
     def __init__(self, in_size, out_size):
         super(unetUp, self).__init__()
@@ -94,12 +94,4 @@ class Unet(nn.Module):
             for param in self.resnet.parameters():
                 param.requires_grad = True
 
-# Unet_test = Unet()
-# # print(Unet_test)
-# # Usage
-# input_tensor = torch.randn(1, 3, 256, 256)  # Example input tensor
-# input_tensor = input_tensor.to('cuda')
-# Unet_test = Unet_test.to('cuda')
-# output_tensor = Unet_test(input_tensor)
-# print(input_tensor.shape)  # torch.Size([8, 64, 32, 32])
-# print(output_tensor.shape)  # torch.Size([8, 64, 32, 32])
+

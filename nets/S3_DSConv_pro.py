@@ -293,9 +293,3 @@ def _coordinate_map_scaling(
 
     return coordinate_map_scaled
 
-# if __name__=='__main__':
-#     model = DSConv_pro().cuda()
-#     x = torch.randn(1,128,280,280).cuda()
-#     y = model(x)
-#     print(x.size())
-#     print(y.size())

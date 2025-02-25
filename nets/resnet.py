@@ -60,13 +60,13 @@ class Bottleneck(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         width = int(planes * (base_width / 64.)) * groups
-        # 利用1x1卷积下降通道数
+
         self.conv1 = conv1x1(inplanes, width)
         self.bn1 = norm_layer(width)
-        # 利用3x3卷积进行特征提取
+
         self.conv2 = conv3x3(width, width, stride, groups, dilation)
         self.bn2 = norm_layer(width)
-        # 利用1x1卷积上升通道数
+
         self.conv3 = conv1x1(width, planes * self.expansion)
         self.bn3 = norm_layer(planes * self.expansion)
 
@@ -99,25 +99,22 @@ class Bottleneck(nn.Module):
 
 class ResNet(nn.Module):
     def __init__(self, block, layers, num_classes=1000):
-        #-----------------------------------------------------------#
-        #   假设输入图像为600,600,3
-        #   当我们使用resnet50的时候
-        #-----------------------------------------------------------#
+
         self.inplanes = 64
         super(ResNet, self).__init__()
-        # 600,600,3 -> 300,300,64
+
         self.conv1  = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
         self.bn1    = nn.BatchNorm2d(64)
         self.relu   = nn.ReLU(inplace=True)
-        # 300,300,64 -> 150,150,64
+
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=0, ceil_mode=True) # change
-        # 150,150,64 -> 150,150,256
+
         self.layer1 = self._make_layer(block, 64, layers[0])
-        # 150,150,256 -> 75,75,512
+
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
-        # 75,75,512 -> 38,38,1024
+
         self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
-        # 38,38,1024 -> 19,19,2048
+
         self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
         
         self.avgpool = nn.AvgPool2d(7)
