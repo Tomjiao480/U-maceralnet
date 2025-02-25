@@ -2,10 +2,10 @@
 # Project name
 U-Maceralnet: A Deep Learning Model for Coal Maceral Images Segmentation
 ##  Title of manuscript
-An Improved U-Net Model for the Identification of Coal Macerals
+An Improved U-net Model for the Identification of Coal Macerals
 
 # 📌 Overview
-U-MaceralNet is a deep learning-based semantic segmentation model specifically designed for **identification of coal maceral images**. By integrating **Dynamic Snake Convolution** and **External Attention Mechanism**, U-MaceralNet effectively enhances the segmentation accuracy of **lathy coal macerals** while addressing the challenges in coal maceral images processing. The U-maceralnet model achieves average values of 84.01% for pixel accuracy (PA), 75.29% for intersection over union (IoU), 87.58% for precision, and 89.77% for recall.
+U-Maceralnet is a deep learning-based semantic segmentation model specifically designed for **identification of coal maceral images**. By integrating **Dynamic Snake Convolution** and **External Attention Mechanism**, U-Maceralnet effectively enhances the segmentation accuracy of **lathy coal macerals** while addressing the challenges in coal maceral images processing. The U-maceralnet model achieves average values of 84.01% for pixel accuracy (PA), 75.29% for intersection over union (IoU), 87.58% for precision, and 89.77% for recall.
 # 🔥 Key Features
 
 -   using **Dynamic Snake Convolution** to improve lathy structure recognition
